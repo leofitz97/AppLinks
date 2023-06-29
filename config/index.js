@@ -11,6 +11,6 @@ module.exports = {
     PASSWORD_DEV: process.env.PASSWORD_DEV,
     DATABASE_DEV: process.env.DATABASE_DEV,
     HOST_DEV: process.env.HOST_DEV,
-    DIALECT_DEV: process.env.DIALECT_DEV,
+    // DIALECT_DEV: process.env.DIALECT_DEV,
     APP_SECRET: process.env.APP_SECRET
 }

@@ -1,6 +1,6 @@
-const AppServices = require('../../services/AppServices');
-const auth = require('../../api/middleware/auth');
-const { validateCreateApp, validateUpdate } = require('../../api/middleware/appValidations');
+const AppServices = require('../services/AppServices');
+const auth = require('./middleware/auth');
+const { validateCreateApp, validateUpdate } = require('./middleware/appValidations');
 
 
 

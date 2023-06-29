@@ -16,7 +16,8 @@ if (config.use_env_variable) {
     username: config.USERNAME_DEV,
     password: null,
     host: config.HOST_DEV,
-    dialect: config.DIALECT_DEV
+    dialect: 'mysql',
+    
   });
 }
 

@@ -1,6 +1,6 @@
 
 
-{
+module.exports = {
   "development": {
     "username": "root", 
     "password": null,
@@ -15,12 +15,12 @@
     "host": "localhost",
     "dialect": "mysql"
   },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "localhost",
-    "dialect": "mysql"
-  }
+  // "production": {
+  //   "username": "root",
+  //   "password": null,
+  //   "database": "database_production",
+  //   "host": "localhost",
+  //   "dialect": "mysql"
+  // }
 }
 

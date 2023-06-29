@@ -1,8 +1,10 @@
 const request = require('supertest');
-// const api = require('./appsTest');
-const { GenerateSignature } = require('../../utils');
-const apps = require('../appTest');
+const { GenerateSignature } = require('../utils');
+const apps = require('../express-app');
+
+
 const signature = GenerateSignature({id:2, name:'lioms'});
+
 
 describe('POST /test/apps/add', ()=>{
     
@@ -56,7 +58,7 @@ describe('POST /test/apps/add', ()=>{
     
                     expect(response.statusCode).toBe(400)
                     expect(response.body).toEqual({
-                        message: 'app name is required is a required field',
+                        message: 'app name is a required field',
                         error: {
                             name: 'ValidationError',
                             type: 'required'
@@ -75,7 +77,7 @@ describe('POST /test/apps/add', ()=>{
     
                     expect(response.statusCode).toBe(400)
                     expect(response.body).toEqual({
-                        message: 'app icon is required is a required field',
+                        message: 'app icon is a required field',
                         error: {
                             name: 'ValidationError',
                             type: 'required'
@@ -94,7 +96,7 @@ describe('POST /test/apps/add', ()=>{
     
                     expect(response.statusCode).toBe(400)
                     expect(response.body).toEqual({
-                        message: 'app url is required is a required field',
+                        message: 'app url is a required field',
                         error: {
                             name: 'ValidationError',
                             type: 'required'
@@ -113,7 +115,7 @@ describe('POST /test/apps/add', ()=>{
     
                     expect(response.statusCode).toBe(400)
                     expect(response.body).toEqual({
-                        message: 'app name is required is a required field',
+                        message: 'app name is a required field',
                         error: {
                             name: 'ValidationError',
                             type: 'optionality'
@@ -132,7 +134,7 @@ describe('POST /test/apps/add', ()=>{
     
                     expect(response.statusCode).toBe(400)
                     expect(response.body).toEqual({
-                        message: 'app icon is required is a required field',
+                        message: 'app icon is a required field',
                         error: {
                             name: 'ValidationError',
                             type: 'optionality'
@@ -151,7 +153,7 @@ describe('POST /test/apps/add', ()=>{
     
                     expect(response.statusCode).toBe(400)
                     expect(response.body).toEqual({
-                        message: 'app url is required is a required field',
+                        message: 'app url is a required field',
                         error: {
                             name: 'ValidationError',
                             type: 'optionality'
@@ -326,7 +328,7 @@ describe('UPDATE /test/app/:id', ()=>{
             test('should respond with json object of error message', async() => {
                 const response = await request(apps).patch('/test/apps/78').set('Cookie', signature);
                 expect(response.body).toEqual({
-                    message: 'app name is required is a required field',
+                    message: 'app name is a required field',
                     error: {
                         name: 'ValidationError',
                         type: 'optionality'
@@ -350,7 +352,7 @@ describe('UPDATE /test/app/:id', ()=>{
             test('should respond with json object of error message', async() => {
                 const response = await request(apps).patch('/test/apps/78').send({name:''}).set('Cookie', signature);
                 expect(response.body).toEqual({
-                    message: 'app name is required is a required field',
+                    message: 'app name is a required field',
                     error: {
                         name: 'ValidationError',
                         type: 'required'

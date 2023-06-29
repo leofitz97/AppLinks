@@ -32,7 +32,7 @@ module.exports.validateUpdate=()=>{
             req.params = res.params;
             next();
         })
-        .catch(err=>{ console.log({msg:err.message, name: err.name, type:err.type})
+        .catch(err=>{
             res.status(STATUS_CODES.BAD_REQUEST).json({message:err.message, error:{name: err.name, type: err.type}})
         })
     }
