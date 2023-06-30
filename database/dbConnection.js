@@ -2,20 +2,21 @@
 
 const Sequelize = require('sequelize');
 const process = require('process');
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/index.js');
+const { config } = require(__dirname + '/../config');
 const db = {};
 
 let sequelize;
+let config_tst = config['test'];
 
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
+  sequelize = new Sequelize(process.env[config_tst.use_env_variable], config_tst);
+} 
+else {
   sequelize = new Sequelize({
-    database: config.DATABASE_DEV,
-    username: config.USERNAME_DEV,
-    password: null,
-    host: config.HOST_DEV,
+    database: config_tst['database'],
+    username: config_tst['username'],
+    password: config_tst['password'],
+    host: config_tst['host'],
     dialect: 'mysql',
   });
 }

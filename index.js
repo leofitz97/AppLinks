@@ -1,4 +1,4 @@
-const { PORT_DEV } = require('./config/index');
+const { PORT_TST } = require('./config/index')['test'];
 const { sequelize } = require('./database/dbConnection');
 const app = require('./express-app');
 
@@ -17,8 +17,8 @@ const startDB=async()=>{
 startDB();
 
 
-app.listen(PORT_DEV, ()=>{
-    console.log('User is listening on port '+PORT_DEV);
+app.listen(PORT_TST, ()=>{
+    console.log('User is listening on port '+PORT_TST);
 })
 
 

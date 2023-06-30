@@ -1,29 +1,13 @@
-const path = require('path');
+require('dotenv').config(); // this is important!
+
 
 module.exports = {
-  "development": {
-    "username": "root", 
-    "password": null,
-    // "database": "restfulApi_dev",
-    "storage": path.join(__dirname, '..', 'appLinks.sql'),
-    "host": "localhost",
-    "dialect": "mysql",
-
-  },
   "test": {
-    "username": "root",
+    "username": process.env.DB_USERNAME_TST,
     "password": null,
-    "database": "database_test",
-    "host": "localhost",
-    "dialect": "mysql",
-    // storage: path.join(__dirname, '..', 'database_test.sqlite'),
+    "database": process.env.DB_DATABASE_TST,
+    "host":     process.env.DB_HOST_TST,
+    "dialect": "mysql"
   },
-  // "production": {
-  //   "username": "root",
-  //   "password": null,
-  //   "database": "database_production",
-  //   "host": "localhost",
-  //   "dialect": "mysql"
-  // }
 }
 

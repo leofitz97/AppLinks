@@ -13,7 +13,7 @@ module.exports = (app)=>{
         
         try {
             const { name, icon, url } = req.body;
-            // const token = await services.createApp({name:name, icon:icon, url:url});
+            const token = await services.createApp({name:name, icon:icon, url:url});
             res.status(200).json({message:'app link has been created successfully!'});
         }catch(err){
             res.status(500).json({message:'an error occured creating app link!', error:'internal server error!'})
@@ -23,9 +23,9 @@ module.exports = (app)=>{
     app.get('/test/apps/:id', auth(), async(req, res)=>{
         try {
             const { id } = req.params;
-            // const data = await services.editApp(id);
-            // res.status(200).json({message:'success', data:data})
-            res.status(200).json({message:'success'})
+            const data = await services.editApp(id); console.log(data)
+            res.status(200).json({message:'success', data:data})
+            // res.status(200).json({message:'success'})
         }catch(err){
             res.status(500).json({message:'unable to fetch app data!', error:'internal server error!'})
         }
@@ -35,7 +35,7 @@ module.exports = (app)=>{
         try {
             const { id } = req.params;
             const { name } = req.body;
-            // await services.updateAppInfo({id:id, name:name});
+            await services.updateAppInfo({id:id, name:name});
             res.status(200).json({message:'app has been successfully updated!'})
         }catch(err){
             res.status(500).json({message:'unable to update app data!', error:'internal server error!'})
