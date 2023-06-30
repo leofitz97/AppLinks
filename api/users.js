@@ -21,16 +21,16 @@ module.exports = (app)=>{
         }
     });
 
-    app.get('/get_users', auth(), async(req, res, next)=>{
-        try {
-            const data = await services.viewAllUsers();
-            res.status(200).json({message: 'success', data:data});
-        }catch(err){
-            res.status(500).send('internal server error')
-        }
-    })
+    // app.get('/get_users', auth(), async(req, res, next)=>{
+    //     try {
+    //         const data = await services.viewAllUsers();
+    //         res.status(200).json({message: 'success', data:data});
+    //     }catch(err){
+    //         res.status(500).send('internal server error')
+    //     }
+    // })
 
-    app.post('/user/create', auth(), async(req, res)=>{
+    app.post('/add_user', auth(), async(req, res)=>{
         try {
             const { name, email, password } = req.body;
             const token = await services.SignUp({name:name, email:email, password:password});
@@ -40,16 +40,16 @@ module.exports = (app)=>{
         }
     })
 
-    app.get('/user/:id', async(req, res)=>{
-        try {
-            const { id } = req.params;
-            const data = await services.userDetails(id);
-            console.log(data)
-            res.status(200).json({message:'data fouind', data:data})
-        }catch(err){
-            res.status(500).json({message:'unable to fetch user data!', message:'internal server error!'})
-        }
-    })
+    // app.get('/user/:id', async(req, res)=>{
+    //     try {
+    //         const { id } = req.params;
+    //         const data = await services.userDetails(id);
+    //         console.log(data)
+    //         res.status(200).json({message:'data fouind', data:data})
+    //     }catch(err){
+    //         res.status(500).json({message:'unable to fetch user data!', message:'internal server error!'})
+    //     }
+    // })
 
     
 }

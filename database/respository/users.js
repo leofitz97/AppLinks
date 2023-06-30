@@ -78,24 +78,7 @@ class UserRepository {
         }catch(err){
             console.log(err);
         }
-    }
-
-    async assignUserRole({ id, role }){
-        try {
-            const user = await Users.findByPk(id);
-            if (user){
-                await Users.update({ role: role}, {
-                    where: {
-                        id: id
-                    }
-                })
-            }
-        }catch(err){
-            console.log(err);
-        }
-    }
-
-    
+    }  
 
 }
 
