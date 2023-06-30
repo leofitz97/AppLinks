@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const yup = require("yup");
 
-const { APP_SECRET_DEV } = require("../config")['dev'];
+const { APP_SECRET_TST } = require("../config")['test'];
 
 //Utility functions
 module.exports.GenerateSalt = async () => {
@@ -23,14 +23,13 @@ module.exports.ValidatePassword = async (enteredPassword, savedPassword) => {
 };
 
 module.exports.GenerateSignature = (payload) => {
-  return jwt.sign(payload, APP_SECRET_DEV);
+  return jwt.sign(payload, APP_SECRET_TST);
 };
 
 
 
 module.exports.authSchema = yup.object({
   body: yup.object({
-    // name: yup.string().min(8).max(40).required().label("Name"),
     email: yup.string().email('Must be a valid email').required().label("Email is required"),
     password: yup
       .string()
