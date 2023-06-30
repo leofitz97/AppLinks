@@ -1,15 +1,15 @@
 
 require('dotenv').config();
-const {  test } = require('./config');
+const {  development } = require('./config');
 
 
 module.exports = {
-    "test": {
-        PORT_TST: process.env.NODE_PORT_TST,
-        NODE_TST: process.env.NODE_ENV_TST,
-        APP_SECRET_TST: process.env.APP_SECRET_TST
+    "dev": {
+        PORT_DEV: process.env.NODE_PORT_DEV,
+        NODE_DEV: process.env.NODE_ENV_DEV,
+        APP_SECRET_DEV: process.env.APP_SECRET_DEV
     },
     "config": {
-        test: test
+        dev: development
     }
 }

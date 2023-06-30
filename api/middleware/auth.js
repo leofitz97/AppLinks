@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const { BadRequestError, STATUS_CODES } = require('../../utils/errors');
-const { APP_SECRET } = require('../../config');
+const { STATUS_CODES } = require('../../utils/errors');
+const { APP_SECRET_DEV } = require('../../config')['dev'];
 
 
 
@@ -9,7 +9,7 @@ const auth=()=>{
         const authCookie = req.headers.cookie;
         if (authCookie){
             let payload = authCookie.split("=")[1];
-            jwt.verify(payload, APP_SECRET, (err, data)=>{
+            jwt.verify(payload, APP_SECRET_DEV, (err, data)=>{
                 if (err){ 
                     return res.status(STATUS_CODES.UN_AUTHORIZED).json({message:'request not authorized!', error:'not authorized'})
                 }else {

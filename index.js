@@ -1,4 +1,4 @@
-const { PORT_DEV } = require('./config/index');
+const { PORT_DEV } = require('./config')['dev'];
 const { sequelize } = require('./database/dbConnection');
 const app = require('./express-app');
 

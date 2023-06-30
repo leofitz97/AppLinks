@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const yup = require("yup");
 
-const { APP_SECRET } = require("../config");
+const { APP_SECRET_DEV } = require("../config")['dev'];
 
 //Utility functions
 module.exports.GenerateSalt = async () => {
@@ -23,7 +23,7 @@ module.exports.ValidatePassword = async (enteredPassword, savedPassword) => {
 };
 
 module.exports.GenerateSignature = (payload) => {
-  return jwt.sign(payload, APP_SECRET);
+  return jwt.sign(payload, APP_SECRET_DEV);
 };
 
 

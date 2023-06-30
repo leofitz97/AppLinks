@@ -40,17 +40,6 @@ class UserServices {
         }
     }
 
-    async assignRole(data){
-        
-        const { id, role } = data;
-
-        try {
-            await this.respository.assignUserRole({id:id, role:role})
-        }catch(err){
-            throw new Error('Role assign error! something bad has happened!');
-        }
-    }
-
     async viewAllUsers(){
         
         try {
