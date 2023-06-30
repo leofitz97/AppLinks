@@ -54,9 +54,9 @@ module.exports = (app)=>{
 
     app.get('/test/apps', async(req, res)=>{
         try {
-            // const data = await services.viewAllApps();
-            // res.status(200).json({message:'success', data:data})
-            res.status(200).json({message:'success'})
+            const data = await services.viewAllApps();
+            res.status(200).json({message:'success', data:data})
+            // res.status(200).json({message:'success'})
         }catch(err){ console.log(err)
             res.status(500).json({message:'an error occured fetching apps', error:'internal server error!'})
         }
